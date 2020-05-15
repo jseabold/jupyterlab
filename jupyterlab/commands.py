@@ -1606,7 +1606,7 @@ class _AppHandler(object):
             metadata = _fetch_package_metadata(self.registry, name, self.logger)
         except URLError:
             return
-        versions = metadata.get('versions', [])
+        versions = metadata.get('versions', {})
 
         # Sort pre-release first, as we will reverse the sort:
         def sort_key(key_value):
